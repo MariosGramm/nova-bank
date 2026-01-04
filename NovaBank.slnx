@@ -1,3 +1,18 @@
 <Solution>
-  <Project Path="WebUI/WebUI.csproj" />
+  <Folder Name="/src/">
+    <Project Path="Application/Application.csproj" Id="0cc1b9d2-4139-4a1f-9880-3699b5003bac" />
+    <Project Path="Infrastructure/Infrastructure.csproj" Id="d30cacb2-1d5e-4c76-b8c9-6ae37c43d899" />
+    <Project Path="WebUI/WebUI.csproj" Id="b45746c3-4d98-4434-a828-54b7cc1de37a" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="Application.UnitTests/Application.UnitTests.csproj" Id="4b9ca33f-f839-4c9b-936e-9476ec7ece68" />
+    <Project Path="Domain.UnitTests/Domain.UnitTests.csproj" Id="71b0461a-9fb0-4a82-a366-bb644a5af6b3" />
+    <Project Path="Infrastructure.IntegrationTests/Infrastructure.IntegrationTests.csproj" Id="79067261-7163-48a2-a66b-533f15781b04" />
+    <Project Path="WebUI.IntegrationTests/WebUI.IntegrationTests.csproj" Id="615438d7-f4f8-4b58-b26a-396d4309b1a2" />
+  </Folder>
+  <Project Path="WebUI/Domain.csproj" Id="1c6e9125-2ee2-0386-8438-3b1e31ad1f96">
+    <BuildType Project="?" />
+    <Platform Project="?" />
+    <Build Project="false" />
+  </Project>
 </Solution>
