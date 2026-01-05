@@ -2,7 +2,7 @@
 {
     public enum AccountStatus
     {
-        ACTIVE, //default
+        ACTIVE,     //default
         INACTIVE    //If employee deactivates user's account
     }
 }

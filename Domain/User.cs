@@ -7,6 +7,7 @@ namespace Domain
 {
     internal class User : AuditableEntity
     {
-
+        public int Id { get; set; }
+        public 
     }
 }
