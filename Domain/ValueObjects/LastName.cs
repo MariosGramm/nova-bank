@@ -5,9 +5,11 @@ namespace Domain.ValueObjects
 {
     public sealed record LastName
     {
-        public string? _value { get; }
+        private const int DefaultLength = 20;
+        private LastName(string value) => _value = value;
+        public string _value { get; }
 
-        public LastName(string value)
+        public static LastName Create(string value)
         {
             if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException("Last name cannot be empty");
 
@@ -18,7 +20,12 @@ namespace Domain.ValueObjects
                 throw new ArgumentException("Invalid last name insertion");
             }
 
-            _value = value;
+            if (value.Length > DefaultLength)
+            {
+                throw new ArgumentException("Last name cannot exceed 20 characters");
+            }
+
+            return new LastName(value);
         }
 
         private static bool isLastNameValid(string value)

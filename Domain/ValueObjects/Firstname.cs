@@ -5,9 +5,11 @@ namespace Domain.ValueObjects
 {
     public sealed record FirstName
     {
-        public string? _value { get; }
+        private const int DefaultLength = 12;
+        private FirstName(string value) => _value = value;
+        public string _value { get; }
 
-        public FirstName(string value)
+        public static FirstName Create(string value)
         {
             if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException("First name cannot be empty");
 
@@ -18,12 +20,17 @@ namespace Domain.ValueObjects
                 throw new ArgumentException("Invalid first name insertion");
             }
 
-            _value = value;
+            if (value.Length > DefaultLength)
+            {
+                throw new ArgumentException("First name cannot exceed 12 characters");
+            }
+
+            return new FirstName(value);
         }
 
         private static bool isFirstNameValid(string value)
         {
-            string regEx = "^[A - Za - z]+([ '-][A-Za-z]+)*$";
+            string regEx = "^[A-Za-z]+([ '-][A-Za-z]+)*$";
 
             return Regex.IsMatch(value, regEx);
         }
