@@ -3,27 +3,27 @@ using System.Text.RegularExpressions;
 
 namespace Domain.ValueObjects
 {
-    public sealed record Lastname
+    public sealed record PhoneNumber
     {
         public string? _value { get; }
 
-        public Lastname(string value)
+        public PhoneNumber(string value)
         {
-            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException("Last name cannot be empty");
+            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException("Phone number cannot be empty");
 
             value = value.Trim();
 
-            if (!isLastnameValid(value))
+            if (!isPhoneNumberValid(value))
             {
-                throw new ArgumentException("Invalid last name insertion");
+                throw new ArgumentException("Invalid phone number insertion");
             }
 
             _value = value;
         }
 
-        private static bool isLastnameValid(string value)
+        private static bool isPhoneNumberValid(string value)
         {
-            string regEx = "^[A - Za - z]+([ '-][A-Za-z]+)*$";
+            string regEx = "";
 
             return Regex.IsMatch(value, regEx);
         }

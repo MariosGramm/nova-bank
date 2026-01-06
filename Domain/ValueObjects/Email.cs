@@ -9,7 +9,7 @@ namespace Domain.ValueObjects
 
         public Email (string value)
         {
-            if (string.IsNullOrEmpty(value)) throw new ArgumentNullException("Email cannot be empty");
+            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException("Email cannot be empty");
 
             value = value.Trim();
 

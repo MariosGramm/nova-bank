@@ -9,7 +9,7 @@ namespace Domain.ValueObjects
 
         public Firstname(string value)
         {
-            if (string.IsNullOrEmpty(value)) throw new ArgumentNullException("First name cannot be empty");
+            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException("First name cannot be empty");
 
             value = value.Trim();
 
