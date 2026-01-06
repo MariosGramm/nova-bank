@@ -6,11 +6,8 @@ namespace Domain.ValueObjects
     public sealed record FirstName
     {
         private const int DefaultLength = 12;
-
-        private FirstName(string value) => _value = value;
-        public string _value { get; }
-
-
+        private FirstName(string value) => Value = value;
+        public string Value { get; }
 
         public static FirstName Create(string value)
         {
@@ -40,8 +37,7 @@ namespace Domain.ValueObjects
 
         public override string ToString()
         {
-            #pragma warning disable
-            return _value;
+            return Value;
         }
     }
 }
