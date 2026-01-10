@@ -20,7 +20,6 @@ namespace Domain.Users.ValueObjects
             return new Email(value);
         }
 
-
         private static bool isEmailValid(string value)
         {
             string regEx = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$\r\n";
@@ -30,7 +29,6 @@ namespace Domain.Users.ValueObjects
 
         public override string ToString()
         {
-            #pragma warning disable
             return Value;
         }
     }
